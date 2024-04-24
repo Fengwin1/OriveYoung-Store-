@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="jquery1.js"></script>
+	
+    <style>
+ 
+  body {
+            background-color: #fff;
+            font-family: system-ui;
+        }
+
+        .container {
+            width: 1000px;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr 50px;
+            margin-top: 50px;
+        }
+
+        header .shopping {
+            position: relative;
+            text-align: right;
+        }
+
+        header .shopping img {
+            width: 40px;
+        }
+
+        header .shopping span {
+            background: red;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: absolute;
+            top: -5px;
+            left: 80%;
+            padding: 3px 10px;
+        }
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
+            row-gap: 20px;
+            margin-top: 50px;
+        }
+
+        .list .item {
+            text-align: center;
+            background-color: #FFFFFF;
+            padding: 20px;
+            box-shadow: 0 50px 50px #757676;
+            letter-spacing: 1px;
+        }
+
+        .list .item img {
+            width: 90%;
+            height: 430px;
+            object-fit: cover;
+        }
+
+        .list .item .title {
+            font-weight: 600;
+        }
+
+        .list .item .price {
+            margin: 10px;
+        }
+
+        .list .item button {
+            background-color: #1C1F25;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .card {
+            position: fixed;
+            top: 0;
+            left: 100%;
+            width: 500px;
+            background-color: #A7FA81 ;
+            height: 100vh;
+            transition: 0.5s;
+        }
+
+        .active .card {
+            left: calc(100% - 500px);
+        }
+
+        .active .container {
+            transform: translateX(-200px);
+        }
+
+        .card h1 {
+            color: #E8BC0E; <culoare scris 'cos">
+            font-weight: 100;
+            margin: 0;
+            padding: 0 20px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card .checkOut {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+			
+        }
+
+        .card .checkOut div {
+            background-color: #fff; <buton cart>
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card .checkOut div:nth-child(2) {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .listCard li {
+            display: grid;
+            grid-template-columns: 100px repeat(3, 1fr);
+            color: #fff;
+            row-gap: 10px;
+        }
+
+        .listCard li div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			
+        }
+
+        .listCard li img {
+            width: 90%;
+        }
+
+        .listCard li button {
+            background-color:#4CAF50;;
+            border: none;
+        }
+
+        .listCard .count {
+            margin: 0 10px;
+        }
+		.categories {
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.categories table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.categories th, .categories td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    background-color: #fff;
+}
+
+.categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.categories li {
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background-color: #AEF59A;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #AEF59A;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #000000;
+	text-align: center;
+	ont-family: Algerian;
+}
+
+.shopping img {
+    width: 30px;
+}
+
+h2 {
+    color: #000000;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.item {
+    text-align: center;
+    background-color: #000000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.title {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #000000;
+}
+
+.price {
+    margin: 10px;
+    font-size: 16px;
+    color: #e44d26;
+}
+
+button {
+    background-color: #e44d26;
+    color: #fff;
+    width: 80%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.card {
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.active .card {
+    left: calc(100% - 500px);
+}
+
+
+    </style>
+	   
+</head>
+
+<body class="">
+    <header>
+            <h1>OliveYoung</h1>
+            <div class="shopping">
+                <img src="image/shopping.svg">
+                <span class="quantity">0</span>
+            </div>
+            <h2>Bine ai venit la OliveYoung! Discover Asian Skincare's Radiant Secrets!</h2>
+        </header>
+    <div class="container">
+	<th>Produse</th>
+	
+        <div class="categories">
+            <table>
+                <th>Categorii</th>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Creme</li>
+                            <li>Ser</li>
+                            <li>Cleansers</li>
+							<li>Tonere</li>
+							<li>Esențe</li>
+							<li>Sunscreen</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+     
+        <div class="list">
+        </div>
+    </div>
+    
+</body>
+
+    <div class="card">
+        <h1>Cos</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0 lei</div>
+            <div class="closeShopping">Close</div>
+        
+        </div>
+    </div>
+
+    
+
+<script>
+$(document).ready(function()}
+})</script>
+
+    <div class="card">
+        <h1>Cos</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0 lei</div>
+            <div class="closeShopping">Close</div>
+        
+        </div>
+    </div>
+
+    <script>
+         
+        $(document).ready(function () {
+            let openShopping = $('.shopping');
+            let closeShopping = $('.closeShopping');
+            let list = $('.list');
+            let listCard = $('.listCard');
+            let body = $('body');
+            let total = $('.total');
+            let quantity = $('.quantity');
+
+            openShopping.on('click', function () {
+                body.addClass('active');
+            });
+
+            closeShopping.on('click', function () {
+                body.removeClass('active');
+            });
+
+        let products = [
+            {
+                id: 1,
+                name: 'Toner, 250 ml, Anua',
+                image: '1.jpg',
+                price: 122 
+            },
+            {
+                id: 2,
+                name: 'Crema intens hidratanta Dynasty, 50ml, Beauty of Joseon',
+                image: '10.webp',
+                price: 99.99
+            },
+            {
+                id: 3,
+                name: 'Sunscreen, 50 ml, Beauty of Joseon',
+                image: '3.png',
+                price: 80.20
+            },
+            {
+                id: 4,
+                name: 'Snail Mucin Essence, 80 ml, Cosrx',
+                image: '4.webp',
+                price: 80
+            },
+            {
+                id: 5,
+                name: 'Centella Serum, 30 ml, Purito',
+                image: '5.webp',
+                price: 120
+            },
+            {
+                id: 6,
+                name: 'Ser cu niacinamidee+propolis, 30ml, Beauty of Joseon',
+                image: '6.webp',
+                price: 80
+            }
+        ];
+		
+		  let listCards = [];
+
+            function initApp() {
+                $.each(products, function (key, value) {
+                    let newDiv = $('<div>').addClass('item').html(`
+                        <img src="image/${value.image}">
+                        <div class="title">${value.name}</div>
+                        <div class="price">${value.price.toLocaleString()} lei</div>
+                        <button class="addToCard" data-key="${key}">Add To Card</button>`);
+                    list.append(newDiv);
+                });
+            }
+
+            function addToCard(key) {
+                if (listCards[key] == null) {
+                    listCards[key] = $.extend(true, {}, products[key]);
+                    listCards[key].quantity = 1;
+                }
+                reloadCard();
+            }
+
+            function reloadCard() {
+                listCard.empty();
+                let count = 0;
+                let totalPrice = 0;
+
+                $.each(listCards, function (key, value) {
+                    totalPrice += value.price;
+                    count += value.quantity;
+
+                    let newDiv = $('<li>').html(`
+                        <div><img src="image/${value.image}"/></div>
+                        <div>${value.name}</div>
+                        <div>${value.price.toLocaleString()} lei</div>
+                        <div>
+                            <button class="changeQuantity" data-key="${key}" data-quantity="${value.quantity - 1}">-</button>
+                            <div class="count">${value.quantity}</div>
+                            <button class="changeQuantity" data-key="${key}" data-quantity="${value.quantity + 1}">+</button>
+                            <button class="removeItem" data-key="${key}">X</button>
+                        </div>`);
+
+                    listCard.append(newDiv);
+                });
+
+                total.text(`Total: ${totalPrice.toLocaleString()} lei`);
+                quantity.text(count);
+            }
+
+            function changeQuantity(key, quantity) {
+                if (quantity === 0) {
+                    delete listCards[key];
+                } else {
+                    listCards[key].quantity = quantity;
+                    listCards[key].price = quantity * products[key].price;
+                }
+                reloadCard();
+            }
+
+            function removeItem(key) {
+                delete listCards[key];
+                reloadCard();
+            }
+
+            initApp();
+
+            list.on('click', '.addToCard', function () {
+                addToCard($(this).data('key'));
+            });
+
+            listCard.on('click', '.changeQuantity', function () {
+                changeQuantity($(this).data('key'), $(this).data('quantity'));
+            });
+
+            listCard.on('click', '.removeItem', function () {
+                removeItem($(this).data('key'));
+            });
+        });
+    </script>
+</body>
+
+</html>
